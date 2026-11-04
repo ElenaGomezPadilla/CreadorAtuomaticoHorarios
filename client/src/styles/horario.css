@@ -1,0 +1,1118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+  1. REGISTRO DE LAS FUENTES
+  ========================================================================== */
+
+/* --- REGISTRAR LA FUENTE NORMAL --- */
+@font-face {
+  font-family: 'Alte Haas Grotesk';
+  src: url('fonts/AlteHaasGroteskRegular.woff2') format('woff2');
+  font-weight: normal; /* Indica que este archivo es para texto normal */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- REGISTRAR LA FUENTE EN NEGRITA --- */
+@font-face {
+  font-family: 'Alte Haas Grotesk';
+  src: url('fonts/AlteHaasGroteskBold.woff2') format('woff2');
+    /* Indica que este archivo es para cuando uses 'font-weight: bold' o etiquetas <strong> */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Iosevka Charon';
+  src: url('./fonts/IosevkaCharon-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Iosevka Charon';
+  src: url('./fonts/IosevkaCharon-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* ========================
+   ESTILOS DE LAS VISTAS DE HORARIO
+   ======================== */
+ 
+/*---------------------------------------------- LISTADO DE HORARIOS ---------------------------------------- */
+
+/* Estilos generales */
+.contenedor-principal-listado-horario {
+  display: flex;
+  padding: 1rem;
+  width: 100%;
+  min-height: 100%;
+
+
+
+  background-size: cover;      /* la imagen cubre todo el contenedor */
+  background-position: center; /* centrada */
+  background-repeat: no-repeat;
+  min-height: 100vh;            /* para que se vea si el contenedor es alto */
+
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  align-items: center; 
+  flex-direction: column;     /* Alineación en filas (horizontal) */
+  flex-wrap: nowrap;         /* Permite que los elementos se envuelvan en varias filas si no caben */
+  /*gap: 20px; /* espacio entre cabecera y lista */
+  
+}
+
+.contenedor-listado-horarios {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contenedor-caja-horario-botones-listado-horario{
+  display: flex;
+  flex-direction: row;
+}
+
+/* Tarjetas de horarios */
+.caja-horario {
+  flex: 0 0 90%; /* ancho fijo del 65% */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f8f8f910;
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex; /* Activo el flexbox */
+  flex-direction: column; /* Coloco a los hijos el fila */
+}
+
+.nombre-horario{
+  padding: 0.75rem 0.75rem 0.75rem 1.5rem;
+  background-color: #f8f8f950;
+  border-radius: 10px 10px 0 0;
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  color: #F8F8F9;
+   
+  font-size: 1.5rem;
+  text-align: left;
+
+}
+
+.contenedor-botones-creacion-horario {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  width: 100%;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.contenedor-botones-filtros-curso-creacion-horario {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;      
+  flex-wrap: wrap;
+}
+
+.contenedor-botones-navegacion-creacion-horario {
+  gap: 0.75rem;      
+  display: flex;
+  margin-left: 0; 
+}
+
+.contenedor-botones-navegacion-creacion-horario-parametros {
+  display: flex;
+  flex-direction: row;       /* row en vez de "flex-start" (que no existe) */
+  justify-content: flex-end; /* esto empuja los hijos hacia la derecha */
+  gap: 0.75rem;
+}
+
+/*------------------------ MATRIZ HORARIO LISTADO --------------------*/
+.listado-matriz-horario {
+  display: grid;
+  grid-template-columns: 6rem repeat(5, 1fr); 
+  grid-auto-rows: minmax(60px, auto);    /* altura mínima uniforme */
+  gap: 0.5rem;
+  margin: 10px 15px 15px 10px;
+}
+
+.listado-fila-horario {
+  display: contents; /* las celdas participan directamente en el grid padre */
+}
+
+.listado-celda-horario {
+  padding: 10px;
+  min-height: 60px;
+  height: auto;
+  border-radius: 6px;
+  background-color: #5C1E1880;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+
+
+.listado-celda-horario-dias {
+  flex: 1;
+  height: 60px;
+  border-radius: 6px;
+  /*background-color: #5C1E18;*/
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-size: x-large;  /* tamaño de la fuente */
+   
+  color: #F8F8F9;
+}
+
+
+.listado-celda-horario-horas {
+  display: flex;
+  flex: 1;
+  max-width: 8rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background-color: #5C181850;
+  
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-size: 1rem;  /* tamaño de la fuente */
+   
+  color: #F8F8F9;
+}
+
+
+.listado-celda-horario-titulo-asignatura {
+  flex: 1;
+  width: 100%;      
+  height: auto;         /* alto justo al contenido */
+  border-radius: 6px;
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Eje horizontal */
+  justify-content: center; /* Eje vertical */
+  padding: 0.15rem;
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  font-size: 15px;/* tamaño de la fuente */
+   
+  color: white;
+}
+
+
+.listado-celda-horario-caracteristicas-asignatura {
+  flex: 1;
+  width: 100%;      
+  height: auto;         /* alto justo al contenido */
+  border-radius: 6px;
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Eje horizontal */
+  justify-content: center; /* Eje vertical */
+  gap: 10px;
+
+}
+
+.listado-celda-horario-asignatura-informacion {
+  flex: 1;
+  height: auto;         /* alto justo al contenido */
+  border-radius: 6px;
+  background-color: #42D78780;
+  padding: 0.15rem;
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  text-align: center;
+  font-size: smaller;  /* tamaño de la fuente */
+   
+  color: white;
+
+}
+
+/*--------------------------------------------*/
+
+
+.aux{
+  display: flex;
+  flex-direction: column;
+}
+
+.creacion-celda-horario-titulo-asignatura {
+  flex: 1;
+  width: 100%;      
+  height: auto;         /* alto justo al contenido */
+  border-radius: 6px;
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Eje horizontal */
+  justify-content: center; /* Eje vertical */
+  padding: 0.15rem;
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  font-size: 15px;/* tamaño de la fuente */
+   
+  color: white;
+}
+
+
+.creacion-celda-horario-caracteristicas-asignatura {
+  flex: 1;
+  width: 100%;      
+  height: auto;         /* alto justo al contenido */
+  border-radius: 6px;
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Eje horizontal */
+  justify-content: center; /* Eje vertical */
+  gap: 10px;
+
+}
+
+.creacion-celda-horario-asignatura-informacion {
+  flex: 1;
+  height: auto;         /* alto justo al contenido */
+  border-radius: 6px;
+  background-color: #42D78780;
+  padding: 0.15rem;
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  text-align: center;
+  font-size: smaller;  /* tamaño de la fuente */
+   
+  color: white;
+
+}
+
+
+/*---------------------------------------------- EDICION DE HORARIOS ---------------------------------------- */
+
+/* Estilos generales */
+.contenedor-principal-editar-horario {
+  display: flex;
+  padding: 1rem;
+  width: 100%;
+  min-height: 100%;
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  min-height: 100%;
+  align-items: center;
+  flex-direction: column;     /* Alineación en filas (horizontal) */
+  flex-wrap: nowrap;         /* Permite que los elementos se envuelvan en varias filas si no caben */
+  
+}
+
+.contenedor-editar-horario{
+/* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  justify-content: space-between; /* cada hijo a un extremo */
+}
+
+.contenedor-horario-y-nombre {
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+  margin: 0.75px;
+}
+
+.input-nombre-horario{
+  width: 30%;
+  padding: 0.4rem;  
+  font-size: 0.9rem;
+  border: 1px solid #5C1818;
+  border-radius: 4px;
+  background-color: #fff7f1;
+}
+
+/* Tarjetas de horarios */
+.contenedor-editar-horario-matriz {
+  width: 100%;
+  padding: 0 1.5rem 1.5rem 1.5rem; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex; /* Activo el flexbox */
+  flex-direction: column; /* Coloco a los hijos el fila */
+
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+.contenedor-botones-editar-horario{
+  flex: 0 0 10%; /* ancho fijo del 65% */
+  padding: 1rem;
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex; /* Activo el flexbox */
+  flex-direction: column; /* Coloco a los hijos el fila */
+  gap: 1rem;
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  color: white;
+   
+  font-size: 0.8rem;
+}
+
+.boton-guardar-horario-editado {
+  height: 50px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: #FAF9F980;
+  transition: background-color 0.3s;
+
+/* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  color: #5C1E18;
+   
+  font-size: 1.8rem;
+  text-decoration: none;
+}
+.boton-guardar-horario-editado:hover {
+  border-color: #FAF9F980;
+  color: #5C1E18;
+  background-color: #FAF9F980;
+}
+
+
+
+/*------------------------ MODAL ASIGNATURAS ------------------------ */
+.contenedor-menu-desplegable {
+  position: relative; /* el hijo absolute se posiciona respecto a este */
+}
+
+.modal-desplegable {
+  position: fixed;  
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+  padding: 0.5rem;
+  z-index: 9999;
+
+/* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-ventana {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 1.2rem; 
+  width: 80%;      
+  height: 80%;    
+  overflow-y: auto; /* Activa la barra de Scroll */
+  border-radius: 12px;
+  background-color: #f8f8f9;
+
+/* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-direction: row;
+}
+
+
+.modal-desplegable button {
+  padding: 0.75rem 2rem;     /* más alto y más ancho */
+  border-radius: 0.4rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 100%;
+}
+.modal-desplegable button:hover {
+  background-color: #f0f0f0;
+}
+
+.boton-cerrar-modal {
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+.formulario-edicion-horario{
+  width: 100%;
+  height: 100%; 
+  margin: 0.5rem;
+
+/* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;  
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+.contenedor-titulo-botones{
+  flex: 0 0 auto; 
+  width: 100%;
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* label izq, botones dcha */
+  align-items: center;            /* alineados verticalmente al centro */
+  gap: 10px;
+}
+
+.texto-titulo-creacion-horario{
+  color: #5c1818;
+  font-size: 2rem;
+}
+
+.modal-botones{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+
+.edicion-horario-listado-asignaturas{
+  flex: 1; 
+  width: 100%; 
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+/* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;     
+  align-content: flex-start;
+}
+
+.edicion-horario-caja-asignatura {
+  flex: 0 1 15%; 
+  border-radius: 6px;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px 10px 30px 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+/* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+
+/* --- CARACTERÍSTICAS DEL TEXTO --- */
+  color: #5c1818;
+   
+  font-family: 'Inria Sans', sans-serif;  
+  font-size: medium;
+}
+.edicion-horario-caja-asignatura.seleccionada {
+  background-color: #5c181880;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/*------------------------------------------------------------------------------------- */
+
+
+/*---------------------------------------------- CREACIÓN DE HORARIOS ---------------------------------------- */
+ 
+/* Contenedor principal centrado */
+.contenedor-principal-crear-horario {
+  display: flex;
+  flex-direction: column;     /* Alineación en filas (horizontal) */
+  flex-wrap: nowrap;         /* Permite que los elementos se envuelvan en varias filas si no caben */
+  padding: 1rem; 
+  width: 100%;
+  min-height: 100%;
+  /*gap: 20px; /* espacio entre cabecera y lista */
+}
+
+.paso {
+  display: flex;
+  flex-direction: column;
+}
+
+.titulo-contenedor-creacion-horario {
+  margin: 10px;
+  color: #FAF9F9;
+  font-size: x-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.cuerpo-contenedor-creacion-horario {
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  margin: 10px auto;   
+  padding: 1.5rem;      
+
+  width: 100%;
+  max-width: 95%;     
+  box-sizing: border-box;
+}
+
+
+.cuerpo-contenedor-creacion-horario-generado {
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  margin: 10px;
+  gap: 10px;
+}
+
+.contenedor-botones-creacion-horario-parametros {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cuerpo-contenedor-creacion-horario-parametros{
+ background-color: #F8F8F950;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 10px;
+}
+
+
+/*---- ESTILOS DE LA CUADRÍCULA DEL HORARIO ----*/
+.creacion-horario-listado-asignaturas{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;     
+  color: rgba(168, 104, 52, 0.5);
+  border-radius: 12px;
+  width: 100%; 
+}
+
+
+.creacion-horario-caja-asignatura {
+ background-color: #FAF9F950;
+  padding: 10px 10px 30px 10px;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, background-color 0.2s, border 0.2s;
+  display: flex; 
+
+  min-width: 0; 
+  flex-shrink: 0;
+  box-sizing: border-box;
+  overflow: hidden;  
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+
+  box-sizing: border-box;
+  height: auto;
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  color: #5C1E18;
+  font-family: 'Inria Sans', sans-serif;
+}
+.creacion-horario-caja-asignatura.seleccionada {
+  background-color: var(--color-seleccion, #78E2AD); 
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.paso-cursadas {
+  --color-seleccion: #78E2AD; 
+}
+.paso-excluidas {
+  --color-seleccion: #E27878;
+}
+.paso-deseadas {
+  --color-seleccion: #789AE2; 
+}
+/*--------*/
+
+/*---- SELECCIÓN DE REQUISITOS CREACIÓN HORARIO ----*/
+.filtros-creacion-horario{
+  display: flex;
+  justify-content: center;     
+  padding: 1.5rem;
+  border-radius: 12px;
+  gap: 5rem;
+  width: 100%; 
+/* --- CARACTERÍSTICAS DEL TEXTO --- */
+  color: #5C1E18;
+}
+
+.grupo-filtro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+   
+}
+
+.lista-botones-filtro {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  flex-wrap: wrap; /* si hay muchos botones, saltan a la línea siguiente */
+}
+
+.boton-filtro {
+  padding: 0.4rem 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid #5C1E18;
+  background-color: #FAF9F980;
+  color: #5C1E18;
+  cursor: pointer;
+}
+
+.boton-filtro.activo {
+  background-color: #5C1E18;
+  color: #FAF9F9;
+}
+/*--------*/
+
+.listado-horarios-generados {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;     
+  padding: 1.5rem;
+  border-radius: 12px;
+  gap: 5rem;
+  width: 100%; 
+
+/* --- CARACTERÍSTICAS DEL TEXTO --- */
+  color: #5C1E18;
+}
+
+.opcion-horario-generado{
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #FAF9F980;
+}
+
+/*----------------------------------------------   ESTILOS GENERALES ---------------------------------------- */
+
+.edicion-nombre-horario{
+  padding: 0.75rem 0.75rem 0.75rem 1.5rem;
+  background-color: #f8f8f950;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex; /* Activo el flexbox */
+  justify-content: space-between;
+  align-items: center;
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  color: #5C1E18;
+   
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.cabecera-horario {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 1rem; /* Ayuda con el espaciado */
+}
+
+.titulo-vista-horarios {
+  flex: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  
+  color: #FAF9F9;
+  font-weight: bold;
+  font-size: 1rem;
+   
+}
+
+.listado-asignaturas-creacion-horario {
+  padding-top: 2px;
+  width: 100%;
+
+/* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+
+/*------------------------ BOTONES --------------------*/
+
+.contenedor-botones-horario{
+  flex: 0 0 10%; /* ancho fijo del 65% */
+  padding: 1rem;
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex; /* Activo el flexbox */
+  flex-direction: column; /* Coloco a los hijos el fila */
+  gap: 1rem;
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  color: white;
+   
+  font-size: 0.8rem;
+}
+
+.cabecera-paso-horarios-generados {
+  display: flex;
+  flex-direction: row;
+  align-items: center;       /* alinea verticalmente título y botón */
+  justify-content: space-between; /* título a la izq, botón a la der */
+  width: 100%;
+  flex-wrap: wrap;           /* por si en pantallas pequeñas no cabe */
+  gap: 1rem;
+}
+
+
+.boton-individual-general {
+  height: 50px;
+  display: inline-block; /* Crucial para que el padding en etiquetas <a> funcione correctamente */
+  border: 2px solid transparent; /* Reserva el espacio para el borde del hover */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: #5C1E18;
+  transition: background-color 0.3s;
+
+/* --- CARACTERÍSTICAS DEL TEXTO --- */
+  color: white;
+  text-decoration: none;
+}
+.boton-individual-general:hover {
+  color: #5C1E18;
+  background-color: #FAF9F9;
+}
+
+
+.boton-horario {
+  flex: 0 0 1px;
+  display: inline-block;
+  border: 2px solid transparent; /* Reserva el espacio para el borde del hover */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: #f8f8f9;
+  transition: background-color 0.3s;
+
+/* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  color: #645573;
+   
+  font-size: 0.8rem;
+  text-decoration: none;
+   
+}
+.boton-horario:hover {
+  color: #f8f8f9;
+  background-color: #645573;
+}
+
+.boton-crear-horario {
+  display: inline-block; 
+  border: 2px solid transparent; /* Reserva el espacio para el borde del hover */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: #5C1818;
+  transition: background-color 0.3s;
+
+/* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  color: #f8f8f9;
+   
+  font-size: 0.8rem;
+  text-decoration: none;
+   
+}
+.boton-crear-horario:hover {
+  color: #5C1818;
+  background-color: #f8f8f9;
+}
+
+/*--------------------------------------------*/
+
+
+
+/*------------------------ MATRIZ HORARIO --------------------*/
+.matriz-horario {
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: grid !important;
+  grid-template-columns: 8rem repeat(5, minmax(140px, 1fr));
+  gap: 0.5rem;
+  margin: 10px 15px 15px 10px;
+  min-width: 900px; 
+}
+
+.fila-horario {
+  display: contents;
+}
+
+.celda-horario {
+  padding: 10px;
+  width: 100%;
+  min-width: 0; 
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  background-color: #5C1E1880;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Eje horizontal */
+  justify-content: center; /* Eje vertical */
+  gap: 0.5rem;
+
+}
+
+
+
+.celda-horario-dias {
+  height: 60px;
+  border-radius: 6px;
+  min-width: 0;
+  box-sizing: border-box;
+  /*background-color: #5C1E18;*/
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-size: x-large;  /* tamaño de la fuente */
+   
+  color: #F8F8F9;
+}
+
+
+.celda-horario-horas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  min-width: 0;
+  box-sizing: border-box;
+  background-color: #5C1E1850;
+  
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-size: 1rem;  /* tamaño de la fuente */
+   
+  color: #F8F8F9;
+}
+
+
+.celda-horario-titulo-asignatura {
+  flex: 1;
+  width: 100%;      
+  height: auto;         /* alto justo al contenido */
+  border-radius: 6px;
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Eje horizontal */
+  justify-content: center; /* Eje vertical */
+  padding: 0.15rem;
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  font-size: medium;  /* tamaño de la fuente */
+   
+  color: #f8f8f9;
+}
+
+
+.celda-horario-caracteristicas-asignatura {
+  width: 100%;      
+  height: auto;         /* alto justo al contenido */
+  border-radius: 6px;
+  margin: 5px;
+  box-sizing: border-box;
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  align-items: flex-start; /* Eje horizontal */
+  justify-content: center; /* Eje vertical */
+  gap: 10px;
+
+}
+
+.celda-horario-asignatura-informacion {
+  height: auto;         /* alto justo al contenido */
+  border-radius: 6px;
+  background-color: #5c1818;
+  padding: 0.15rem 0.4rem;
+  box-sizing: border-box;
+  max-width: 100%;
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  text-align: center;
+  font-size: smaller;  /* tamaño de la fuente */
+   
+  white-space: normal;  
+  color: white;
+}
+
+/*--------------------------------------------*/
+
+
+
+.panel-flotante-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.panel-flotante-grupos {
+  color: black;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.panel-flotante-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.panel-flotante-listado-grupos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.panel-flotante-boton-grupo {
+  text-align: left;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+  background: white;
+}
+
+.panel-flotante-boton-grupo.seleccionado {
+  border-color: #333;
+  background: #f0f0f0;
+}
+
+
+/*---------------------SEPARADOR POR CURSO-----------------------*/
+
+.bloque-curso-creacion-horario {
+  width: 100%;
+  padding: 2rem;
+  border-radius: 50px;
+}
+
+.separador-curso {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+
+.texto-separador-curso {
+  font-family: 'Inria Sans', sans-serif;
+  font-size: 1.25rem;
+   
+  color: #F8F8F9;
+  white-space: nowrap;
+}
+
+.linea-separador-curso {
+  flex: 1;
+  height: 2px;
+  background-color: #F8F8F9;
+  opacity: 0.3;
+}
+
+
+
+.contenedor-warnings-horario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.warning-horario {
+  background-color: #f5be9180;
+  border-left: 4px solid #f5be91;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  color: #5C1E18;
+  font-family: 'Iosevka Charon';
+  font-size: 0.9rem;
+  font-weight: bold;
+}

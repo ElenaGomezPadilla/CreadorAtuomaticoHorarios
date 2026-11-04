@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================
+   ESTILOS DE LAS VISTAS DE ASIGNATURA
+   ======================== */
+
+
+/* Contenedor principal centrado */
+.contenedor-principal-asignaturas {
+  padding: 1rem;
+  max-width:98%;
+  width: 100%;
+  min-height: 100vh;
+
+/* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-direction: column;     /* Alineación en filas (horizontal) */
+  flex-wrap: nowrap;         /* Permite que los elementos se envuelvan en varias filas si no caben */
+}
+
+.cabecera-asignaturas {
+  width: 100%;
+  padding: 1rem; /* Ayuda con el espaciado */
+
+/* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;  
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.titulo-vista-asignaturas {
+  flex: 1;
+
+  justify-content: flex-start;
+  align-items: flex-start;
+
+/* --- CARACTERÍSTICAS DEL TEXTO --- */
+  color: #FAF9F9;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.lista-asignaturas {
+  padding-top: 2px;
+  width: 100%;
+
+/* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-start;
+  justify-content: center;     /* Centra horizontalmente */
+}
+
+.caja-asignatura {
+  background-color:#F8F8F950; /* Color #A86834 con 50% de opacidad */
+  padding: 10px 10px 30px 10px; /* Arriba, derecha, abajo, izquierda */
+  border-radius: 0.75rem;               /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+  transition: transform 0.2s;           /* Suaviza la animación al hacer hover */
+  width: 23%;                         /* Establece un ancho fijo para el contenedor */
+  height:auto;                         /* La altura se ajusta según el contenido */
+  flex-shrink: 0;                       /* Evita que se reduzca en un contenedor flex */
+
+/* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Inria Sans', sans-serif; /* Tipografía personalizada */
+  color: #393531;                       /* Color del texto */
+}
+.caja-asignatura:hover {
+  transform: translateY(-4px);
+}
+
+.titulo-asignatura {
+  width: 100%;              /* Ocupa todo el ancho del contenedor */
+  margin-bottom:0.75rem;
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-size: 1.1rem;
+  color: #5C1E18;
+  white-space: normal;      /* Permite que el texto haga saltos de línea automáticamente */
+  word-wrap: break-word;    /* Rompe las palabras largas si es necesario */
+  overflow-wrap: break-word;/* Compatible con más navegadores modernos */
+}
+
+.contenedor-etiquetas-asignatura {
+  padding: 5px;            /* Espacio interno alrededor del contenedor */
+  box-sizing: border-box;   /* Incluye padding y borde en el tamaño total */
+
+/* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;            /* Organiza los hijos en fila por defecto */
+  flex-wrap: wrap;       /* si no caben en una fila, pasan a la siguiente */
+  flex-direction: row;      /* Asegura la alineación horizontal */
+  gap: 5px;                /* Espacio entre los hijos (subcontenedores) */
+}
+
+.etiqueta-asignatura {
+  background-color: #5C1E18;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 30px;            /* Altura en proporción al contenedor padre */
+  border-radius: 0.5rem;    /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  box-sizing: border-box;   /* Incluye padding en el ancho/alto total */
+  max-width: 100%;
+
+/* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;                /* Convierte el contenedor en flexbox */
+  justify-content: center;     /* Centra horizontalmente */
+  align-items: center;         /* Centra verticalmente */
+  flex: 0 0  fit-content;          /* No crecer, no encoger, ancho base de 200px */
+
+/* --- CARACTERÍSTICAS DEL TEXTO --- */
+  white-space: nowrap;      /* Evita que el texto se divida en varias líneas */
+}
+
+.texto-etiqueta-asignatura {
+  color:#DCD2C6;
+  font-size: 1rem;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.contenedor-horario-asignatura {
+  border-radius: 20px;
+  margin: 10px;
+  padding: 5px;            /* Espacio interno alrededor del contenedor */
+  box-sizing: border-box;   /* Incluye padding y borde en el tamaño total */
+
+/* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;            /* Organiza los hijos en fila por defecto */
+  flex-direction: row;      /* Asegura la alineación horizontal */
+  gap: 5px;                /* Espacio entre los hijos (subcontenedores) */
+}
+
+.texto_itinerario_asignatura{
+  color:#5C1E18;
+  font-size: 1rem;
+}
+
+.contenedor-dependencias-asignatura {
+  background-color: #d7aea080;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 5px;            /* Espacio interno alrededor del contenedor */
+  box-sizing: border-box;   /* Incluye padding y borde en el tamaño total */
+
+/* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;            /* Organiza los hijos en fila por defecto */
+  flex-direction: row;      /* Asegura la alineación horizontal */
+  gap: 5px;                /* Espacio entre los hijos (subcontenedores) */
+}
+.texto-dependencias-asignatura{
+  color:#5C1E18;
+  font-size: 1rem;
+}
+
+/*---------------------SEPARADOR POR CURSO-----------------------*/
+
+.bloque-curso {
+  width: 100%;
+  margin: 0.75rem;
+  padding: 2rem;
+  background-color: #D7AEA050;
+  border-radius: 20px;
+}
+
+.separador-curso {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+
+.texto-separador-curso {
+  font-family: 'Inria Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #F8F8F9;
+  white-space: nowrap;
+}
+
+.linea-separador-curso {
+  flex: 1;
+  height: 2px;
+  background-color: #F8F8F9;
+  opacity: 0.3;
+}

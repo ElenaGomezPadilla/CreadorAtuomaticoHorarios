@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================
+   ESTILOS DE LOGIN/REGISTRO
+   ======================== */
+
+/* Contenedor principal centrado */
+.contenedor-principal-login {
+  display: flex;
+  height: 100vh;  /* Ocupar toda la altura de la ventana */
+  width: 100vw;   /* Ocupar todo el ancho de la ventana */
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 10%; /* margen del lado derecho */
+}
+
+/* Caja de contenido del formulario */
+.contenedor-derecha {
+  background-color: #D7AEA050; /* solo uno, elimina el anterior duplicado */
+  max-width: 28rem;
+  width: 50%;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Organización del formulario */
+.ubicacion-formulario {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  gap: 25px;
+}
+
+.contenedor-izquierda {
+  width: 55%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Imagen que se ajusta al contenedor */
+.imagen-registro-login {
+  max-width: 80%; /* ajusta el tamaño del contenedor interno */
+  max-height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagen que se ajusta al contenedor */
+.imagen-centrada {
+  width: 100%; /* La imagen ocupará el 100% del ancho de su contenedor */
+  height: 100%; /* La imagen ocupará el 100% de la altura de su contenedor */
+  border-radius: 1rem;
+  object-fit: cover;
+  display: block; /* para evitar espacios fantasma en imágenes */
+}
+
+
+/* Organización de texto */
+.ubicacion-texto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Títulos */
+.titulo-texto-principal {
+  /*font-family: 'Inria Sans', sans-serif; */
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+  color: #393531;
+}
+
+.subtitulo-texto-secundario {
+  /*font-family: 'Inria Sans', sans-serif;*/
+  font-size: 1rem;
+  text-align: center;
+  color: #393531;
+
+}
+
+/* Mensajes de estado */
+.texto-rojo {
+  color: #f56565;
+}
+
+.texto-azul {
+  color: #38bdf8;
+}
+
+/* Inputs */
+.input-estilo {
+  background-color: #F8F8F9 ;
+  color: #332227; /* Color de texto (oscuro, cálido y legible) */
+  padding: 0.6rem;
+  font-size: 0.95rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%; /* Ancho */
+  min-height: 2.5rem;  /* Alto */
+}
+
+/* Botones */
+.boton-siguiente {
+  background-color: #5C1818;
+  color: #DCD2C6 ;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  min-height: 3.5rem;
+  font-size: 1.2rem;
+}
+
+/* Enlaces */
+.enlace {
+  color: #5C1818;
+}
+
+/* Contenedor con espaciado flexible */
+.flex-texto-espaciado {
+  display: flex;
+  gap: 0.2rem;
+  padding-top: 3px;
+  font-size: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  color: #1B1917;
+}
+
+/* Caja de error */
+.caja-mensaje-error {
+  background-color: #e90b0b;
+  padding: 0.5rem;
+  color: #DCD2C6 ;
+  text-align: center;
+  margin: 0.5rem 0;
+}

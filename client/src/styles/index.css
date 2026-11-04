@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ==========================================================================
+  1. REGISTRO DE LAS FUENTES
+  ========================================================================== */
+
+/* --- REGISTRAR LA FUENTE NORMAL --- */
+@font-face {
+  font-family: 'Alte Haas Grotesk';
+  src: url('fonts/AlteHaasGroteskRegular.woff2') format('woff2');
+  font-weight: normal; /* Indica que este archivo es para texto normal */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- REGISTRAR LA FUENTE EN NEGRITA --- */
+@font-face {
+  font-family: 'Alte Haas Grotesk';
+  src: url('fonts/AlteHaasGroteskBold.woff2') format('woff2');
+  font-weight: bold; /* Indica que este archivo es para cuando uses 'font-weight: bold' o etiquetas <strong> */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Iosevka Charon';
+  src: url('./fonts/IosevkaCharon-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Iosevka Charon';
+  src: url('./fonts/IosevkaCharon-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+html, body {
+  min-height: 100%;
+}
+
+body{
+  width: 100%;             /* ocupa todo el ancho disponible */  
+  min-height: 100vh;
+  /*background: linear-gradient(135deg, #5c1e18, #7c7488 , #4ed8a0);*/
+  background: linear-gradient(135deg, #5c1818, #C8917C , #4ed8a0);
+  /*background: linear-gradient(135deg, #645573 , #C8917C);*/
+  background-attachment: fixed;
+  background-size: 100% 100vh;
+  color:#5c1818;
+}
+
+#root {
+  min-height: 100vh; /* no uses height fijo aquí */
+}
+
+/*---------------------------------------------- ESTILOS DEL NAVBAR ---------------------------------------- */
+
+.organizar-nabvar-menu{
+  display: flex;
+  width: 100vw;        /* Ocupa el 100% del ancho de la ventana gráfica (Viewport Width) */
+  box-sizing: border-box; /* Evita que el padding o los bordes rompan el ancho total */
+  padding: 0 1rem;     /* Un pequeño colchón a los lados para que no pegue al borde de la pantalla */
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  flex-direction: row;
+  align-items: center; /* Centra verticalmente el botón y la navbar */
+  gap: 13rem;           /* Separa el botón del menú de la barra de navegación */
+
+}
+
+.navbar{
+  display: flex;
+  height: 7vh;
+   width: 75%;  /* ocupa el 72% de la pantalla */
+  margin: 1.5rem 0 1.5rem 0; /* margen exterior */
+  box-sizing: border-box;
+  border-radius: 0.7rem; /* Bordes redondeados */
+  background-color: #f8f8f9;
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  align-items: center;
+  padding: 0 2rem;
+  justify-content: flex-end; /* hijos pegados a la derecha */
+
+}
+
+.navbar-nombre-app{
+  margin-right: auto; 
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nombre-app{
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  font-size: large; /* tamaño de la fuente */
+  font-weight: bold; 
+}
+
+.navbar-enlaces{
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.navbar-nombre-usuario{
+    display: flex;
+  gap: 1.5rem;
+  align-items: center;
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  font-size: large; /* tamaño de la fuente */
+  font-weight: bold; 
+}
+
+
+/*---------------------------------------------- ESTILOS DEL MENÚ LATERAL ---------------------------------------- */
+
+.menu-lateral {
+  position: fixed;      /* se queda fijo en pantalla */
+  top: 0;
+  left: 0;
+  height: 100vh;        /* ocupa toda la altura */
+  width: 260px;
+  background-color: #f8f8f9;
+  padding: 2rem 1.5rem;
+  z-index: 100;
+
+  /* --- ANIMACIÓN --- */
+  transform: translateX(-100%); /* empieza fuera de pantalla a la izquierda */
+  transition: transform 0.3s ease;
+
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.boton-abrir-menu{
+  color: #F8F8F9;
+  background: none;
+  border: none;
+  font-size: 1.5rem; /* opcional, para que se note bien */
+  cursor: pointer;
+}
+
+.menu-lateral.abierto {
+  transform: translateX(0); /* entra en pantalla */
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4); /* capa semitransparente */
+  z-index: 99; /* justo debajo del menú */
+}
+
+.exit-menu-lateral{
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.elementos-menu-lateral{
+  display: flex;
+  flex-direction: column;
+}
+
+.boton-menu-lateral{
+  width: auto;
+  height: 50px;
+  border-radius: 12px;
+
+  /* --- ALINEACIÓN CON FLEXBOX --- */
+  display: flex;
+  align-items: center;       /*Centra el texto verticalmente */
+  padding-left: 15px;        /* Le da el margen deseado desde la izquierda */
+  padding-right: 15px;        /* Le da el margen deseado desde la izquierda */
+  box-sizing: border-box;    /* Evita que el padding aumente el tamaño del botón */
+  margin: 10px;
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-size: large;
+  text-decoration: none;  
+  color: #5c1818;
+}
+.boton-menu-lateral:hover{
+  background-color: #5c181880;  
+  transform: translateY(-6px); 
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  color: #f8f8f9;
+
+}

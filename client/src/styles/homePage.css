@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.home-page{
+  display: flex;
+  min-height: 100vh; /* ocupa toda la pantalla */
+  width: 100%;             /* ocupa todo el ancho disponible */
+  margin-bottom: 0;
+
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  flex-direction: column;  /* hijos en columna */
+  align-items: center;  /* hijos centrados  */
+}
+
+.body-home-page{
+  flex: 1; /* ocupa el espacio restante después de la navbar */
+  position: relative;       /*  fluye normal, CON capa propia  */
+  width: 100%;             /* cada hijo ocupa todo el ancho del padre */
+  margin: 0;               /* sin margen exterior */
+  box-sizing: border-box; 
+
+  /* --- POSICIÓN DE LOS SUBCONTENEDORES --- */
+  display: flex;
+  flex-direction: column;
+}
+
+.home-page-bloques-principales {
+  flex: 1; /* Se adapta a la pantalla */
+  margin: 1rem; /* Margen del contenedor */
+  border-radius: 0.7rem;
+  gap: 2%;
+
+  /* --- POSICIÓN DE LOS SUBCONTENEDORES --- */
+  display: flex;
+  flex-direction: column;
+}
+
+.home-page-bloque-texto {
+  flex: 1; /* [flex-grow: 0] [flex-shrink: 0] [alto: 30%] */
+  border-radius: 0.5rem;  /* radio de las esquinas */
+
+  /* --- POSICIÓN DE LOS SUBCONTENEDORES --- */
+  display: flex;            /* Convertimos la caja madre en un contenedor flexible */
+  flex-direction: column;   /* Apilamos los hijos en vertical (uno arriba y otro abajo) */
+  justify-content: center;  /* Centra el texto verticalmente dentro de su 42% */
+  align-items: center;      /* Centra el texto horizontalmente */
+
+  /* ----------------------------------------------- */
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-size: 1rem;  /* tamaño de la fuente */
+  color: #FAF9F9; /* color del texto */
+  text-decoration: none; /* no hay decoraciones automáticas */
+}
+
+.home-page-texto-principal {
+  flex: 1;
+  margin: 1.5rem 1.5rem 0 1.5rem; /* Margen del contenedor */
+
+  /* --- POSICIÓN DEL TEXTO --- */
+  display: flex; /* Posición del texto */
+  align-items: flex-end;  /* Coloca el texto abajo */
+  justify-content: center;    /* Centra el texto horizontalmente */
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  font-size: xx-large; /* tamaño de la fuente */
+  text-decoration: none; /* no hay decoraciones automáticas */
+  font-weight: bold; 
+}
+
+.home-page-sub-texto-principal {
+  flex: 1;
+  margin: 0 1.5rem 1.5rem 1.5rem ; /* Margen del contenedor */
+
+  /* --- POSICIÓN DEL TEXTO --- */
+  display: flex; /* Posición del texto */
+  align-items: flex-start;  /* Coloca el texto abajo */
+  justify-content: center;    /* Centra el texto horizontalmente */
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  font-size: large; /* tamaño de la fuente */
+  text-decoration: none; /* no hay decoraciones automáticas */
+}
+
+.home-page-bloque-botones {
+  /* --- DISTRIBUCIÓN DE LOS HIJOS --- */
+  display: flex; /* Activo el flexbox */
+  flex-direction: row; /* Coloco a los hijos el fila */
+  justify-content: center; /* separa los enlaces con el mismo espacio entre ellos */
+  padding: 1rem 3rem 6rem 3rem; /* Margen interno entre la contenedor principal y los hijos */
+  gap: 1.5rem;  /* Espaciado entre los subcontenedores */
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-size: 1rem;  /* tamaño de la fuente */
+  color: #DCD2C6; /* color del texto */
+  text-decoration: none; /* no hay decoraciones automáticas */
+}
+
+.home-page-boton-ver-horario {
+  flex: 0 0 225px; 
+  height: 220px;
+  padding: 1rem; /* Margen con los elementos internos */
+  border-radius: 0.75rem;  /* radio de las esquinas */
+
+  background-image: url('../assets/imagen_6.jpg');
+  background-size: cover;     /* la imagen cubre todo el contenedor */
+  background-position: center; /* centra la imagen */
+  background-repeat: no-repeat; /* no repite la imagen */
+
+  transition: transform 0.2s ease, background-color 0.2s ease; /* Para el moviento en el hover */
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  font-size: 1.25rem;  /* tamaño de la fuente */
+  color: #FAF9F9; /* color del texto */
+  font-weight: bold;
+}
+.home-page-boton-ver-horario:hover {
+  background-color: #BD4B3C;  
+  transform: translateY(-6px); 
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  color: #FAF9F9;
+
+}
+
+.home-page-boton-crear-horario {
+  flex: 0 0 225px; 
+  height: 220px;
+  padding: 1rem; /* Margen con los elementos internos */
+  border-radius: 0.75rem;  /* radio de las esquinas */
+
+  background-image: url('../assets/imagen2.jpg');
+  background-size: cover;     /* la imagen cubre todo el contenedor */
+  background-position: center; /* centra la imagen */
+  background-repeat: no-repeat; /* no repite la imagen */
+
+  transition: transform 0.2s ease, background-color 0.2s ease; /* Para el moviento en el hover */
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  font-size: 1.25rem;  /* tamaño de la fuente */
+  color: #FAF9F9; /* color del texto */
+  font-weight: bold;
+}
+.home-page-boton-crear-horario:hover {
+  background-color: #BD4B3C;  
+  transform: translateY(-6px); 
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  color: #FAF9F9;
+}
+
+.home-page-boton-ver-asignaturas {
+  flex: 0 0 225px; 
+  height: 220px;
+  padding: 1rem; /* Margen con los elementos internos */
+  border-radius: 0.75rem;  /* radio de las esquinas */
+
+  background-image: url('../assets/imagen1.png');
+  background-size: cover;     /* la imagen cubre todo el contenedor */
+  background-position: center; /* centra la imagen */
+  background-repeat: no-repeat; /* no repite la imagen */
+
+  transition: transform 0.2s ease, background-color 0.2s ease; /* Para el moviento en el hover */
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  font-family: 'Iosevka Charon';
+  font-size: 1.25rem;  /* tamaño de la fuente */
+  color: #FAF9F9; /* color del texto */
+  font-weight: bold;
+}
+.home-page-boton-ver-asignaturas:hover {
+  background-color: #BD4B3C;  
+  transform: translateY(-6px); 
+
+  /* --- CARACTERÍSTICAS DEL TEXTO --- */
+  color: #FAF9F9;
+
+}
+
